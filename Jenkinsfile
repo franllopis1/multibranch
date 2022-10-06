@@ -53,5 +53,11 @@ pipeline {
       }
     }
 
+    stage('Confirm Deploy to Staging') {
+      steps {
+        input(message: 'Deploy to Stage', ok: 'Hazlo')
+      }
+    }
+
   }
 }
