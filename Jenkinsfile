@@ -59,5 +59,18 @@ pipeline {
       }
     }
 
+    stage('Deploy to Staging') {
+      agent {
+        node {
+          label 'java8'
+        }
+
+      }
+      steps {
+        unstash 'Buzz Java 8'
+        sh './jenkins/deploy.sh staging'
+      }
+    }
+
   }
 }
